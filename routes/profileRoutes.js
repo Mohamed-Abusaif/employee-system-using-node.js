@@ -3,37 +3,32 @@ const profileController = require("../controllers/profileController");
 
 const router = express.Router();
 
-// Get all holidays
 router.get(
-  "/",
+  "/:id",
   // authController.protect,
   // authorizeMiddleware.authorize("Admin"),
-  () => {}
+  profileController.getProfile
 );
 
-// Create a holiday
 router.post(
   "/",
   // authController.protect,
   // authorizeMiddleware.authorize("Admin"),
-  () => {}
+  profileController.createProfile
 );
 
-
-// Update a holiday by ID
 router.patch(
   "/:id",
   // authController.protect,
   // authorizeMiddleware.authorize("Admin"),
-  () => {}
+  profileController.updateProfile
 );
 
-// Delete a holiday by ID
 router.delete(
   "/:id",
   // authController.protect,
   // authorizeMiddleware.authorize("Admin"),
-  () => {}
+  profileController.deleteProfile
 );
 
 module.exports = router;

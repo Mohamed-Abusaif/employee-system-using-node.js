@@ -33,6 +33,7 @@ const EmployeeSchema = new mongoose.Schema(
     },
     //enhancement can be done by embedding the leaves into the employee document:
     // profile: [Profile],
+    profile: { type: Schema.Types.ObjectId, ref: 'Profile' } 
 
 
     // createdAt: { type: Date , default: Date.now()},
