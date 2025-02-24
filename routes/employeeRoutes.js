@@ -1,6 +1,6 @@
 const express = require("express");
 const employeeController = require("../controllers/employeeController");
-const { validateEmployee } = require("./../middlewares/validateEmployee");
+// const { validateEmployee } = require("./../middlewares/validateEmployee");
 
 const router = express.Router();
 
@@ -22,7 +22,7 @@ router.post(
   "/",
   // authController.protect,
   // authorizeMiddleware.authorize("Admin"),
-  validateEmployee,
+  // validateEmployee,
   employeeController.createEmployee
 );
 
@@ -30,7 +30,7 @@ router.patch(
   "/:id",
   // authController.protect,
   // authorizeMiddleware.authorize("Admin"),
-  validateEmployee,
+  // validateEmployee,
   employeeController.updateEmployee
 );
 

@@ -3,11 +3,26 @@ const Leave = require("../models/Leave");
 
 exports.createEmployee = async (req, res) => {
   try {
-    const employee = new Employee(req.body);
+    const { username, firstName, lastName, dob, password } = req.body;
+
+    // Validate request data
+    if (!username || !firstName || !lastName || !dob || !password) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
+    const employee = new Employee({
+      username,
+      firstName,
+      lastName,
+      dob,
+      password,
+    });
+
     await employee.save();
     res.status(201).send(employee);
   } catch (error) {
-    res.status(400).send(error);
+    console.error(error);
+    res.status(400).json({ error: error.message });
   }
 };
 

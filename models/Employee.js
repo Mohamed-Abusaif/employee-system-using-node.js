@@ -9,7 +9,6 @@ const { Schema } = mongoose;
 const EmployeeSchema = new mongoose.Schema(
   {
     // id: { type: Number, required: true, unique: true },
-    _id: Schema.Types.ObjectId,
     //there will be an id created automatically from mongodb
     username: {
       type: String,
@@ -45,9 +44,8 @@ const EmployeeSchema = new mongoose.Schema(
 );
 
 EmployeeSchema.pre("save", function (next) {
-  // capitalize
-  this.firstName.toUpperCase();
-  this.lastName.toUpperCase();
+  this.firstName = this.firstName.toUpperCase();
+  this.lastName = this.lastName.toUpperCase();
   next();
 });
 
