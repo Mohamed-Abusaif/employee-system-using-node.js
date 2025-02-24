@@ -49,7 +49,7 @@ exports.getPage = async (req, res) => {
 
   try {
     const leaves = await Leave.find(filter).limit(10);
-    res.render("index", { leaves, empId, status });
+    res.json(leaves);
   } catch (error) {
     res.status(500).json({ error: error });
   }

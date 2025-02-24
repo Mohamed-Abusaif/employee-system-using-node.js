@@ -23,7 +23,7 @@ router.patch(
   "/:id",
   // authController.protect,
   // authorizeMiddleware.authorize("Admin"),
-  validateLeave,
+  // validateLeave,
   leaveController.updateLeave
 );
 
